@@ -1,0 +1,6 @@
+<%= form_for @posts , :url => posts_path do |f| %>
+<%= render :partial => 'form', :locals => { :f => f } %>
+<%= f.submit "Create" %>
+<% end %>
+
+<%= link_to 'Back', user_path(@id) %>

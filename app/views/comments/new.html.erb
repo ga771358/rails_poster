@@ -1,0 +1,6 @@
+<%= form_for @comments , :url => comments_path do |f| %>
+<%= render :partial => 'form', :locals => { :f => f } %>
+<%= f.submit "Create" %>
+<% end %>
+
+<%= link_to 'Back', post_path(@id) %>

@@ -10,5 +10,22 @@
   <%= @user.email %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+
+<table>
+  <tr>
+    <td>Title</td>
+    <td>Content</td>
+  </tr>
+  <% @user.posts.each do |p|%>
+    <tr>
+      <td><%= p.title %></td>
+      <td><%= p.content %></td>
+      <td><%= link_to 'Show', post_path(p) %></td>
+      <td><%= link_to 'Edit', edit_post_path(p,:u_id => params[:id]) %></td>
+      <td><%= link_to 'Delete', post_path(p),:method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New Post', new_post_path(:u_id => params[:id]) %>
 <%= link_to 'Back', users_path %>
